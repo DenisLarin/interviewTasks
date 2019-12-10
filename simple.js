@@ -132,7 +132,7 @@ const isPalindrome = string => {
     string = string.replace(/\s/g, '');
     console.log(string);
     for (let i = 0; i < string.length / 2; i++) {
-        if (string[i].toLowerCase() !== string[string.length-1-i].toLowerCase()){
+        if (string[i].toLowerCase() !== string[string.length - 1 - i].toLowerCase()) {
             return false;
         }
     }
@@ -142,3 +142,21 @@ console.log(isPalindrome(''));
 console.log(isPalindrome('abcdcba'));
 console.log(isPalindrome('abcd'));
 console.log(isPalindrome('A man a plan a canal Panama'));
+
+
+/*
+* Реализуйте функцию missing(), которая принимает неотсортированный массив уникальных чисел (то есть, числа в нём не повторяются) от 1 до некоего числа n, и возвращает число, отсутствующее в последовательности. Там может быть либо одно отсутствующее число, либо их может не быть вовсе.
+* */
+
+const missing = array => {
+    for (let i = 1; i < array.length; i++) {
+        if (array.indexOf(i) === -1) return i;
+    }
+    return undefined;
+};
+
+console.log(missing([]));
+console.log(missing([1, 4, 3]));
+console.log(missing([2, 3, 4]));
+console.log(missing([5, 1, 4, 2]));
+console.log(missing([1, 2, 3, 4]));
