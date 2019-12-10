@@ -62,3 +62,19 @@ const isSorted = array =>{
 console.log(isSorted([]));
 console.log(isSorted([-Infinity, -5, 0, 3, 9]));
 console.log(isSorted([3,9,-3,10]));
+
+
+
+/*
+* Создайте собственную реализацию функции filter().
+* */
+const filter = (array, callback)=>{
+    const filteredArray = [];
+    for (let i = 0; i < array.length; i++) {
+        if (callback(array[i])){
+            filteredArray.push(array[i]);
+        }
+    }
+    return filteredArray;
+};
+console.log(filter([1,2,3,4],n=>n<3));
