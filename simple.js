@@ -160,3 +160,37 @@ console.log(missing([1, 4, 3]));
 console.log(missing([2, 3, 4]));
 console.log(missing([5, 1, 4, 2]));
 console.log(missing([1, 2, 3, 4]));
+
+
+/*
+*Реализуйте функцию isBalanced() которая принимает строку и возвращает true или false, указывая на то, сбалансированы ли фигурные скобки, находящиеся в строке.
+* */
+
+const isBalanced = string => {
+    string = string.replace(/\s/g, '');
+    let bracket = 0;
+    for (let i = 0; i < string.length; i++) {
+        if (string[i] === '{'){
+            bracket++;
+            continue;
+        }
+        if (string[i] === '}'){
+            if (!bracket){
+                return false;
+            }
+            bracket--;
+            continue;
+        }
+    }
+    if (!bracket){
+        return true;
+    }
+    return false;
+};
+
+console.log(isBalanced('}{'));
+console.log(isBalanced('{{}'));
+console.log(isBalanced('{}{}'));
+console.log(isBalanced('foo { bar { baz } boo }'));
+console.log(isBalanced('foo { bar { baz }'));
+console.log(isBalanced('foo { bar } }'));
