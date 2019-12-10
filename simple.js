@@ -28,7 +28,22 @@ const factorial = number => {
         number--;
     }
     return factorial;
-}
+};
 console.log(factorial(0));
 console.log(factorial(1));
 console.log(factorial(6));
+
+/*
+* Реализуйте функцию fib(), возвращающую n-ное число Фибоначчи.
+* */
+const fib = number =>{
+    if (number === 0){
+        return [0,1];
+    }
+    const [previous, next] = fib(number-1);
+    return [next, previous+next];
+};
+console.log(fib(0)[0]);
+console.log(fib(1)[0]);
+console.log(fib(10)[0]);
+console.log(fib(20)[0]);
