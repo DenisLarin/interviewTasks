@@ -91,6 +91,27 @@ function sort(array) {
     return array.sort()
 }
 
-console.log("________________________________");
+
 console.log(sort([]));
 console.log(sort([-4, 1, Infinity, 3, 3, 0]));
+
+
+
+/*
+*Реализуйте функцию includes(), которая возвращает true или false в зависимости от того, встречается ли переданное ей число в переданном ей отсортированном массиве. Может ли функция решить эту задачу за время O(log(N))?
+* */
+
+
+const includes = (array, number)=>{
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === number){
+            return true;
+        }
+    }
+    return  false;
+};
+
+console.log("________________________________");
+console.log(includes([1, 3, 8, 10], 8));
+console.log(includes([1, 3, 8, 8, 15], 15));
+console.log(includes([1, 3, 8, 10, 15], 9));
