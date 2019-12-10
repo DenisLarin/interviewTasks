@@ -96,22 +96,43 @@ console.log(sort([]));
 console.log(sort([-4, 1, Infinity, 3, 3, 0]));
 
 
-
 /*
 *Реализуйте функцию includes(), которая возвращает true или false в зависимости от того, встречается ли переданное ей число в переданном ей отсортированном массиве. Может ли функция решить эту задачу за время O(log(N))?
 * */
 
 
-const includes = (array, number)=>{
+const includes = (array, number) => {
     for (let i = 0; i < array.length; i++) {
-        if (array[i] === number){
+        if (array[i] === number) {
             return true;
         }
     }
-    return  false;
+    return false;
 };
-
-console.log("________________________________");
 console.log(includes([1, 3, 8, 10], 8));
 console.log(includes([1, 3, 8, 8, 15], 15));
 console.log(includes([1, 3, 8, 10, 15], 9));
+
+
+/*
+* Реализуйте функцию assignDeep(), которая похожа на Object.assign(), но выполняет глубокое объединение объектов. Для того, чтобы не усложнять задачу, можно исходить из допущения, что объекты могут содержать только числа и другие объекты (в них не может быть массивов, строк, и так далее).
+* */
+
+
+
+
+
+
+/*
+* Реализуйте функцию reduceAsync(), которая похожа на функцию reduce() из группы простых заданий, но работает с функциями, возвращающими promise-объекты, каждый из которых должен быть разрешён до перехода к следующему.
+* */
+async function reduceAsync(promisesArray,func, params){
+    await Promise.all([promisesArray[0](), promisesArray[1](), promisesArray[2]()]).then(value => {
+        console.log(func(value, ...params));
+    })
+}
+console.log("________________________________");
+let a = () => Promise.resolve('a');
+let b = () => Promise.resolve('b');
+let c = () => new Promise(resolve => setTimeout(() => resolve('c'), 100));
+reduceAsync([a, c, b], (acc, value) => [...acc, value], ['d']);
