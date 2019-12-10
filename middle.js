@@ -54,7 +54,23 @@ const isBalanced = string => {
     }
     return false;
 };
-console.log("________________________________");
 console.log(isBalanced('(foo { bar (baz) [boo] })'));
 console.log(isBalanced('foo { bar { baz }'));
 console.log(isBalanced('foo { (bar [baz] } )'));
+
+
+
+
+
+/*
+* Реализуйте функцию uniq(), которая принимает массив чисел и возвращает уникальные числа, найденные в нём. Может ли функция решить эту задачу за время O(N)?
+* */
+
+
+const uniq = array =>{
+    return new Set(array);
+};
+
+console.log("________________________________");
+console.log(uniq([]));
+console.log(uniq([1, 4, 2, 2, 3, 4, 8]));
