@@ -77,8 +77,20 @@ console.log(uniq([1, 4, 2, 2, 3, 4, 8]));
 * */
 
 const intersection = (array1, array2) => {
-  return [...new Set(array1)].filter(item=>new Set(array2).has(item));
+    return [...new Set(array1)].filter(item => new Set(array2).has(item));
 };
 
 console.log(intersection([1, 5, 4, 2], [8, 91, 4, 1, 3]));
 console.log(intersection([1, 5, 4, 2], [7, 12]));
+
+/*
+* Создайте реализацию функции sort(), которая сортирует числовой массив за время O(N×log(N))
+* */
+
+function sort(array) {
+    return array.sort()
+}
+
+console.log("________________________________");
+console.log(sort([]));
+console.log(sort([-4, 1, Infinity, 3, 3, 0]));
