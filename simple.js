@@ -97,11 +97,28 @@ console.log(reduce([1, 2, 3, 4], (a, b) => a + b));
 * Реализуйте функцию reverse(), которая обращает порядок следования символов переданной ей строки. Не пользуйтесь встроенной функцией reverse().
 * */
 const reverse = string => {
-  let reversedString = "";
-  for (let i = string.length-1; i>=0;i--){
-      reversedString += string[i];
-  }
-  return reversedString;
+    let reversedString = "";
+    for (let i = string.length - 1; i >= 0; i--) {
+        reversedString += string[i];
+    }
+    return reversedString;
 };
 console.log(reverse(''));
 console.log(reverse('abcdef'));
+
+
+/*
+* Создайте собственную реализацию функции indexOf() для массивов.
+* */
+const indexOf = (array, value) => {
+    let returnedIndex = -1;
+    array.some((item,index)=>{
+        if (item === value){
+            returnedIndex = index;
+            return true;
+        }
+    });
+    return returnedIndex;
+};
+console.log(indexOf([1, 2, 3], 1));
+console.log(indexOf([1, 2, 3], 4));
