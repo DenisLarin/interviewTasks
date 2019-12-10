@@ -78,3 +78,17 @@ const filter = (array, callback)=>{
     return filteredArray;
 };
 console.log(filter([1,2,3,4],n=>n<3));
+
+/*
+* Создайте собственную реализацию функции reduce()
+* */
+
+const reduce = (array, callback)=>{
+    let value = array[0];
+    for (let i = 1; i < array.length; i++) {
+        value = callback(value, array[i]);
+    }
+    return value;
+};
+
+console.log(reduce([1,2,3,4],(a,b)=>a+b));
