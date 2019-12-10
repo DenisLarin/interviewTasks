@@ -59,18 +59,26 @@ console.log(isBalanced('foo { bar { baz }'));
 console.log(isBalanced('foo { (bar [baz] } )'));
 
 
-
-
-
 /*
 * Реализуйте функцию uniq(), которая принимает массив чисел и возвращает уникальные числа, найденные в нём. Может ли функция решить эту задачу за время O(N)?
 * */
 
 
-const uniq = array =>{
-    return new Set(array);
+const uniq = array => {
+    return [...new Set(array)];
 };
 
-console.log("________________________________");
 console.log(uniq([]));
 console.log(uniq([1, 4, 2, 2, 3, 4, 8]));
+
+
+/*
+* Реализуйте функцию intersection(), которая принимает два массива и возвращает их пересечение. Можете ли вы добиться того, чтобы функция решала эту задачу за время O(M+N), где M и N — длины массивов?
+* */
+
+const intersection = (array1, array2) => {
+  return [...new Set(array1)].filter(item=>new Set(array2).has(item));
+};
+
+console.log(intersection([1, 5, 4, 2], [8, 91, 4, 1, 3]));
+console.log(intersection([1, 5, 4, 2], [7, 12]));
