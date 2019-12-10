@@ -112,8 +112,8 @@ console.log(reverse('abcdef'));
 * */
 const indexOf = (array, value) => {
     let returnedIndex = -1;
-    array.some((item,index)=>{
-        if (item === value){
+    array.some((item, index) => {
+        if (item === value) {
             returnedIndex = index;
             return true;
         }
@@ -122,3 +122,23 @@ const indexOf = (array, value) => {
 };
 console.log(indexOf([1, 2, 3], 1));
 console.log(indexOf([1, 2, 3], 4));
+
+
+/*
+* Реализуйте функцию isPalindrome(), которая возвращает true или false в зависимости от того, является ли переданная ей строка палиндромом (функция нечувствительна к регистру и к наличию в строке пробелов).
+* */
+
+const isPalindrome = string => {
+    string = string.replace(/\s/g, '');
+    console.log(string);
+    for (let i = 0; i < string.length / 2; i++) {
+        if (string[i].toLowerCase() !== string[string.length-1-i].toLowerCase()){
+            return false;
+        }
+    }
+    return true;
+};
+console.log(isPalindrome(''));
+console.log(isPalindrome('abcdcba'));
+console.log(isPalindrome('abcd'));
+console.log(isPalindrome('A man a plan a canal Panama'));
