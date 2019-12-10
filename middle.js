@@ -131,8 +131,28 @@ async function reduceAsync(promisesArray,func, params){
         console.log(func(value, ...params));
     })
 }
-console.log("________________________________");
+
 let a = () => Promise.resolve('a');
 let b = () => Promise.resolve('b');
 let c = () => new Promise(resolve => setTimeout(() => resolve('c'), 100));
 reduceAsync([a, c, b], (acc, value) => [...acc, value], ['d']);
+
+
+
+/*
+* Реализуйте функцию seq(), пользуясь тем же подходом, что и при работе над функцией reduceAsync(). Эта функция должна принимать массив функций, которые возвращают promise-объекты, и разрешать их один за другим.
+* */
+
+async function seq(promisesArray){
+    await Promise.all([promisesArray[0](), promisesArray[1](), promisesArray[2]()]).then(value => {
+       console.log(value);
+    });
+}
+
+
+console.log("________________________________");
+let a1 = () => Promise.resolve('a');
+let b1 = () => Promise.resolve('b');
+let c1 = () => Promise.resolve('c');
+seq([a1, b1, c1]);
+seq([a1, c1, b1]);
